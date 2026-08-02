@@ -1,0 +1,3 @@
+# Use client-specific authentication transports
+
+The web application authenticates with a centrally stored, revocable session referenced by an `HttpOnly`, `Secure` cookie and protected against CSRF, while the mobile application authenticates with a revocable bearer token issued for that device. Web sessions expire after 12 hours of inactivity and 30 days overall; mobile credentials expire after 30 days of inactivity and 12 months overall. Both transports represent the same account and enforce the same account state and authorization rules. This accepts the cost of maintaining two transports to avoid exposing a reusable token to browser JavaScript while retaining a native-friendly mechanism for the mobile application.
